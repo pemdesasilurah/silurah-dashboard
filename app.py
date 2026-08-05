@@ -575,11 +575,12 @@ st.markdown(
 # --------------------------------------------------------------------------
 # NAVIGATION
 # --------------------------------------------------------------------------
-tab_beranda, tab_peta, tab_wisata, tab_statistik = st.tabs([
+tab_beranda, tab_peta, tab_wisata, tab_statistik, tab_jdih = st.tabs([
     tr("Beranda", "Home"),
     tr("Peta Digital", "Digital Map"),
     tr("Destinasi Wisata", "Destinations"),
-    tr("Statistik", "Statistics")
+    tr("Statistik", "Statistics"),
+    tr("JDIH & Layanan", "JDIH & Layanan")
 ])
 
 # --------------------------------------------------------------------------
@@ -738,7 +739,7 @@ with tab_beranda:
                 tr("Bpk. Dwi Kurniawan", "Mr. Dwi Kurniawan"), 
                 tr("Bpk. Wanudin", "Mr. Wanudin")
             ],
-            tr("Jumlah RT/RW", "RT/RW Count"): ["2 RT / 1 RW", "1 RT / 1 RW", "1 RT / 0 RW", "2 RT / 1 RW", "2 RT / 1 RW", "2 RT / 1 RW"],
+            tr("Jumlah RT/RW", "RT/RW Count"): ["2 RT / 1 RW", "1 RT / 1 RW", "1 RT / 0 RW", "2 RT / 1 RW", "2 RT / 1 RW", "3 RT / 1 RW"],
         })
         st.dataframe(dusun_df, use_container_width=True, hide_index=True)
 
@@ -938,7 +939,7 @@ with tab_beranda:
         st.dataframe(nakes_df, use_container_width=True, hide_index=True)
 
 # --------------------------------------------------------------------------
-# TAB 2 — PETA DIGITAL (UPDATE: PETA DIGITAL + PETA TEMATIK KKN)
+# TAB 2 — PETA DIGITAL 
 # --------------------------------------------------------------------------
 with tab_peta:
     st.markdown(
@@ -1100,7 +1101,7 @@ with tab_peta:
     st.markdown("</div>", unsafe_allow_html=True)
 
 # --------------------------------------------------------------------------
-# TAB 3 — WISATA (Layout Baru: Kiri Foto+Deskripsi, Kanan Maps)
+# TAB 3 — WISATA
 # --------------------------------------------------------------------------
 with tab_wisata:
     st.markdown(
@@ -1451,4 +1452,63 @@ with tab_statistik:
             )
             
             st.altair_chart(bars_health + text_health, use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# --------------------------------------------------------------------------
+# TAB 5 — JDIH & PPID (JARINGAN DOKUMENTASI DAN INFORMASI HUKUM)
+# --------------------------------------------------------------------------
+with tab_jdih:
+    st.markdown(
+        f"""
+        <div class="section" style="margin-top:2.2rem;">
+            <div class="section-eyebrow">{tr("Transparansi & Pelayanan Publik", "Transparency & Public Services")}</div>
+            <div class="section-title">{tr("JDIH & PPID Desa Silurah", "Silurah Village JDIH & PPID")}</div>
+            <p class="section-body">
+                {tr(
+                    "Layanan informasi publik, jaringan dokumentasi hukum, dan portal layanan masyarakat terpadu Pemerintah Desa Silurah.",
+                    "Public information services, legal documentation network, and integrated community service portal of Silurah Village Government."
+                )}
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown('<div class="section" style="margin-top:1.5rem;">', unsafe_allow_html=True)
+    
+    # Membuat Layout 2 Kolom (Kiri dan Kanan)
+    col_kiri, col_kanan = st.columns(2)
+    
+    with col_kiri:
+        # 1. KOLOM SK KEPALA DESA
+        with st.container(border=True):
+            st.markdown('### Surat Keputusan (SK)')
+            st.caption(tr("Kumpulan Surat Keputusan Kepala Desa Silurah", "Collection of Silurah Village Head Decrees"))
+            st.info(tr("Dokumen sedang dalam tahap digitalisasi dan akan segera diunggah.", "Documents are in the digitization stage and will be uploaded soon."))
+            # Nanti tombol download ditaruh di sini
+            # st.download_button(label="Unduh SK Tahun 2026", data=file_sk, file_name="SK_Kades_2026.pdf")
+            
+        # 2. KOLOM PERATURAN DESA (PERDES)
+        with st.container(border=True):
+            st.markdown('### Peraturan Desa')
+            st.caption(tr("Dokumen Peraturan Desa (Perdes) yang berlaku", "Applicable Village Regulation Documents (Perdes)"))
+            st.info(tr("Dokumen sedang dalam tahap rekapitulasi perangkat desa.", "Documents are in the village official recapitulation stage."))
+            # Nanti tombol download ditaruh di sini
+
+    with col_kanan:
+        # 3. KOLOM PPID
+        with st.container(border=True):
+            st.markdown('### PPID')
+            st.caption(tr("Pejabat Pengelola Informasi dan Dokumentasi", "Information and Documentation Management Officer"))
+            st.info(tr("Formulir dan daftar informasi publik sedang dipersiapkan.", "Forms and public information lists are being prepared."))
+            # Nanti file atau link ditaruh di sini
+            
+        # 4. KOLOM PENGADUAN MASYARAKAT
+        with st.container(border=True):
+            st.markdown('### Layanan Pengaduan')
+            st.caption(tr("Portal pengaduan dan aspirasi masyarakat desa", "Village community complaint and aspiration portal"))
+            st.info(tr("Formulir layanan pengaduan akan segera tersedia.", "The complaint service form will be available soon."))
+            # Nanti bisa diisi dengan link Google Form atau nomor WhatsApp layanan desa
+            # st.link_button("Isi Form Pengaduan", "https://link-google-form.com")
+
     st.markdown("</div>", unsafe_allow_html=True)
