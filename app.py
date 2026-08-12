@@ -73,7 +73,7 @@ if 'artikel_aktif' not in st.session_state:
 
 ARTIKEL_DATA = [
     {
-        "id": "artikel-dokumentasi-gones",
+        "id": "dokumentasi-publikasi-gones",
         "judul": tr("Mahasiswa KKN UNDIP Dokumentasikan Proses Produksi Minuman Gones untuk Mendukung Promosi UMKM Desa Silurah", "UNDIP KKN Students Document the Production Process of Gones Beverage to Support the Promotion of Silurah Village MSMEs"),
         "gambar": "artikel_melda.jpg", 
         "tanggal": "21 Juli 2026",
@@ -96,7 +96,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-optimalisasi-pemasaran",
+        "id": "optimalisasi-pemasaran",
         "judul": tr("Dari Gones ke Marketplace: Mahasiswa KKN Undip Tim II Dorong Digitalisasi Pemasaran UMKM Gones di Desa Silurah", "From Gones to Marketplace: KKN Undip Team II Students Drive Digitalization of Gones MSME Marketing in Silurah Village"),
         "gambar": "artikel_nadia.jpg",
         "tanggal": "23 Juli 2026",
@@ -125,7 +125,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-pelita-visualisasi-data-word",
+        "id": "pelita-visualisasi-data-dan-word",
         "judul": tr("Tingkatkan Efisiensi Administrasi, Perangkat Desa Silurah Ikuti Pelatihan Literasi Digital PELITA", "Improve Administrative Efficiency, Silurah Village Officials Participate in PELITA Digital Literacy Training"),
         "gambar": "artikel_maretta.jpg",
         "tanggal": "27 Juli 2026",
@@ -146,7 +146,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-pelita-rab-sop",
+        "id": "pelita-rab-dan-sop",
         "judul": tr("Tingkatkan Kapasitas Perangkat Desa, Program PELITA Sukses Gelar Pelatihan RAB dan SOP Administrasi di Desa Silurah", "Increase Village Officials' Capacity, PELITA Program Successfully Holds RAB and Administrative SOP Training in Silurah Village"),
         "gambar": "artikel_adzraa.jpg", 
         "tanggal": "27 Juli 2026",
@@ -165,7 +165,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-sosialisasi-mitigasi-pencemaran-air",
+        "id": "sosialisasi-mitigasi-pencemaran-air",
         "judul": tr("Cegah Pencemaran, Mahasiswa KKN Edukasi Warga Desa Silurah Jaga Sumber Mata Air", "Prevent Pollution, KKN Students Educate Silurah Village Residents to Protect Water Springs"),
         "gambar": "artikel_janpier.jpg",
         "tanggal": "27 Juli 2026",
@@ -190,7 +190,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-buku-administrasi",
+        "id": "buku-administrasi",
         "judul": tr("Dari Balai Desa Silurah, Mahasiswa KKN Universitas Diponegoro Mengambil Langkah untuk Mendukung Administrasi Desa yang Lebih Tertata", "From the Silurah Village Hall, Diponegoro University KKN Students Take Steps to Support More Organized Village Administration"),
         "gambar": "artikel_khanza.jpg", 
         "tanggal": "27 Juli 2026",
@@ -217,7 +217,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-sosialisasi-mitigasi-bencana",
+        "id": "sosialisasi-mitigasi-bencana",
         "judul": tr("Tingkatkan Kesiapsiagaan Sejak Dini, Mahasiswa KKN Edukasi Mitigasi Bencana kepada Siswa SMP Negeri 03 Wonotunggal Satap", "Improve Early Preparedness, KKN Students Educate Disaster Mitigation to Students of SMP Negeri 03 Wonotunggal Satap"),
         "gambar": "artikel_yardan.jpg", 
         "tanggal": "29 Juli 2026",
@@ -252,7 +252,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-english-club",
+        "id": "english-club",
         "judul": tr("Kegiatan English Club: Latihan Introduction sebagai Langkah Awal Keterampilan Berbahasa Inggris", "English Club Activities: Introduction Practice as the First Step in English Language Skills"),
         "gambar": "artikel_zacky.jpg", 
         "tanggal": "29 Juli 2026",
@@ -273,7 +273,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-langkah-kecil-silurah",
+        "id": "langkah-kecil-silurah",
         "judul": tr("Dorong Semangat Melanjutkan Pendidikan, Mahasiswa KKN Berikan Psikoedukasi bagi Siswa SMP Negeri 03 Wonotunggal Satap", "Encourage the Spirit to Continue Education, KKN Students Provide Psychoeducation for Students of SMP Negeri 03 Wonotunggal Satap"),
         "gambar": "artikel_aiko.jpg", 
         "tanggal": "30 Juli 2026",
@@ -328,7 +328,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-think-before-you-click",
+        "id": "think-before-you-click",
         "judul": tr("Think Before You Click: Katakan Tidak pada Judi Online, Mahasiswa KKN Tim II Desa Silurah Edukasi Siswa SMP", "Think Before You Click: Say No to Online Gambling, KKN Team II Students Educate Junior High Students in Silurah Village"),
         "gambar": "artikel_hilda.jpg",
         "tanggal": "30 Juli 2026",
@@ -347,7 +347,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-happy-eating-happy-growing",
+        "id": "happy-eating-happy-growing",
         "judul": tr("Dukung Tumbuh Kembang Optimal Melalui Pembekalan Ibu Balita Atasi GTM Lewat Inovasi Gizi", "Support Optimal Growth and Development Through Equipping Toddler Mothers to Overcome GTM via Nutritional Innovation"),
         "gambar": "artikel_alle.jpg",
         "tanggal": "1 Agustus 2026",
