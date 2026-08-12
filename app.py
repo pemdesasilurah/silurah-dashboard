@@ -73,7 +73,7 @@ if 'artikel_aktif' not in st.session_state:
 
 ARTIKEL_DATA = [
     {
-        "id": "artikel-9-melda",
+        "id": "artikel-dokumentasi-gones",
         "judul": tr("Mahasiswa KKN UNDIP Dokumentasikan Proses Produksi Minuman Gones untuk Mendukung Promosi UMKM Desa Silurah", "UNDIP KKN Students Document the Production Process of Gones Beverage to Support the Promotion of Silurah Village MSMEs"),
         "gambar": "artikel_melda.jpg", 
         "tanggal": "21 Juli 2026",
@@ -96,7 +96,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-10-nadia",
+        "id": "artikel-optimalisasi-pemasaran",
         "judul": tr("Dari Gones ke Marketplace: Mahasiswa KKN Undip Tim II Dorong Digitalisasi Pemasaran UMKM Gones di Desa Silurah", "From Gones to Marketplace: KKN Undip Team II Students Drive Digitalization of Gones MSME Marketing in Silurah Village"),
         "gambar": "artikel_nadia.jpg",
         "tanggal": "23 Juli 2026",
@@ -125,7 +125,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-3-maretta",
+        "id": "artikel-pelita-visualisasi-data-word",
         "judul": tr("Tingkatkan Efisiensi Administrasi, Perangkat Desa Silurah Ikuti Pelatihan Literasi Digital PELITA", "Improve Administrative Efficiency, Silurah Village Officials Participate in PELITA Digital Literacy Training"),
         "gambar": "artikel_maretta.jpg",
         "tanggal": "27 Juli 2026",
@@ -146,7 +146,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-adzraa",
+        "id": "artikel-pelita-rab-sop",
         "judul": tr("Tingkatkan Kapasitas Perangkat Desa, Program PELITA Sukses Gelar Pelatihan RAB dan SOP Administrasi di Desa Silurah", "Increase Village Officials' Capacity, PELITA Program Successfully Holds RAB and Administrative SOP Training in Silurah Village"),
         "gambar": "artikel_adzraa.jpg", 
         "tanggal": "27 Juli 2026",
@@ -165,7 +165,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-2-janpier",
+        "id": "artikel-sosialisasi-mitigasi-pencemaran-air",
         "judul": tr("Cegah Pencemaran, Mahasiswa KKN Edukasi Warga Desa Silurah Jaga Sumber Mata Air", "Prevent Pollution, KKN Students Educate Silurah Village Residents to Protect Water Springs"),
         "gambar": "artikel_janpier.jpg",
         "tanggal": "27 Juli 2026",
@@ -190,7 +190,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-buku-administrasi-revisi",
+        "id": "artikel-buku-administrasi",
         "judul": tr("Dari Balai Desa Silurah, Mahasiswa KKN Universitas Diponegoro Mengambil Langkah untuk Mendukung Administrasi Desa yang Lebih Tertata", "From the Silurah Village Hall, Diponegoro University KKN Students Take Steps to Support More Organized Village Administration"),
         "gambar": "artikel_khanza.jpg", 
         "tanggal": "27 Juli 2026",
@@ -217,7 +217,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-1-yardan",
+        "id": "artikel-sosialisasi-mitigasi-bencana",
         "judul": tr("Tingkatkan Kesiapsiagaan Sejak Dini, Mahasiswa KKN Edukasi Mitigasi Bencana kepada Siswa SMP Negeri 03 Wonotunggal Satap", "Improve Early Preparedness, KKN Students Educate Disaster Mitigation to Students of SMP Negeri 03 Wonotunggal Satap"),
         "gambar": "artikel_yardan.jpg", 
         "tanggal": "29 Juli 2026",
@@ -273,7 +273,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-5-aiko",
+        "id": "artikel-langkah-kecil-silurah",
         "judul": tr("Dorong Semangat Melanjutkan Pendidikan, Mahasiswa KKN Berikan Psikoedukasi bagi Siswa SMP Negeri 03 Wonotunggal Satap", "Encourage the Spirit to Continue Education, KKN Students Provide Psychoeducation for Students of SMP Negeri 03 Wonotunggal Satap"),
         "gambar": "artikel_aiko.jpg", 
         "tanggal": "30 Juli 2026",
@@ -328,7 +328,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-6-hilda",
+        "id": "artikel-think-before-you-click",
         "judul": tr("Think Before You Click: Katakan Tidak pada Judi Online, Mahasiswa KKN Tim II Desa Silurah Edukasi Siswa SMP", "Think Before You Click: Say No to Online Gambling, KKN Team II Students Educate Junior High Students in Silurah Village"),
         "gambar": "artikel_hilda.jpg",
         "tanggal": "30 Juli 2026",
@@ -347,7 +347,7 @@ ARTIKEL_DATA = [
         ]
     },
     {
-        "id": "artikel-8-alle",
+        "id": "artikel-happy-eating-happy-growing",
         "judul": tr("Dukung Tumbuh Kembang Optimal Melalui Pembekalan Ibu Balita Atasi GTM Lewat Inovasi Gizi", "Support Optimal Growth and Development Through Equipping Toddler Mothers to Overcome GTM via Nutritional Innovation"),
         "gambar": "artikel_alle.jpg",
         "tanggal": "1 Agustus 2026",
@@ -877,6 +877,60 @@ st.markdown(
     """.replace("__HERO_BG__", hero_bg_css),
     unsafe_allow_html=True,
 )
+
+# --------------------------------------------------------------------------
+# PENANGANAN LINK LANGSUNG (DEEP LINKING / URL QUERY)
+# --------------------------------------------------------------------------
+# 1. Tangkap parameter 'artikel' dari URL jika ada
+if "artikel" in st.query_params:
+    st.session_state.artikel_aktif = st.query_params["artikel"]
+
+# 2. Jika ada artikel yang aktif, tampilkan dalam MODE BACA LAYAR PENUH
+if st.session_state.artikel_aktif is not None:
+    artikel_terpilih = next((a for a in ARTIKEL_DATA if a["id"] == st.session_state.artikel_aktif), None)
+    
+    if artikel_terpilih:
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Tombol Kembali
+        if st.button(tr("⬅ Kembali ke Beranda", "⬅ Back to Home")):
+            st.session_state.artikel_aktif = None
+            if "artikel" in st.query_params:
+                del st.query_params["artikel"]
+            st.rerun()
+        
+        # Header Artikel
+        st.markdown(f"<h1 style='font-size: 2.2rem; color: #2C4C3B; margin-bottom: 5px;'>{artikel_terpilih['judul']}</h1>", unsafe_allow_html=True)
+        st.caption(f"📅 **{artikel_terpilih['tanggal']}** &nbsp;|&nbsp; ✍️ Oleh **{artikel_terpilih['penulis']}**")
+        st.markdown("<hr style='margin: 15px 0 25px 0;'>", unsafe_allow_html=True)
+        
+        # Gambar Banner Artikel
+        img_path = ASSETS_DIR / artikel_terpilih["gambar"]
+        if img_path.exists():
+            st.image(str(img_path), use_container_width=True)
+        else:
+            st.info(tr("🖼️ Tempat foto dokumentasi utama kegiatan.", "🖼️ Placeholder for main documentation photo."))
+        
+        # Isi Paragraf
+        st.markdown('<div style="margin-top: 25px;">', unsafe_allow_html=True)
+        for paragraf in artikel_terpilih["isi"]:
+            st.markdown(
+                f"<p style='font-size: 1.05rem; line-height: 1.8; color: #4A3525; text-align: justify;'>{paragraf}</p>",
+                unsafe_allow_html=True
+            )
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+        st.markdown("<hr style='margin: 40px 0 20px 0;'>", unsafe_allow_html=True)
+        
+        # Tombol Bawah
+        if st.button(tr("Selesai Membaca", "Finish Reading"), type="primary", key="btn_bawah"):
+            st.session_state.artikel_aktif = None
+            if "artikel" in st.query_params:
+                del st.query_params["artikel"]
+            st.rerun()
+            
+        # PENTING: Hentikan sisa eksekusi kode agar navigasi tab tidak ikut ter-render!
+        st.stop()
 
 # --------------------------------------------------------------------------
 # NAVIGATION
@@ -1865,87 +1919,45 @@ with tab_jdih:
 # TAB 6 — PUBLIKASI ARTIKEL KKN
 # --------------------------------------------------------------------------
 with tab_artikel:
-    # 1. JIKA TIDAK ADA ARTIKEL YANG DIPILIH -> TAMPILKAN GRID PREVIEW
-    if st.session_state.artikel_aktif is None:
-        st.markdown(
-            f"""
-            <div class="section" style="margin-top:2.2rem;">
-                <div class="section-eyebrow">{tr("Kabar & Kegiatan", "News & Activities")}</div>
-                <div class="section-title">{tr("Publikasi Program Kemasyarakatan", "Community Program Publications")}</div>
-                <p class="section-body">
-                    {tr(
-                        "Rekam jejak, dokumentasi, dan artikel publikasi kegiatan sosial kemasyarakatan Tim II KKN Undip bersama warga Desa Silurah.",
-                        "Track record, documentation, and publication articles of social community activities by KKN Undip Team II with Silurah Village citizens."
-                    )}
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+    st.markdown(
+        f"""
+        <div class="section" style="margin-top:2.2rem;">
+            <div class="section-eyebrow">{tr("Kabar & Kegiatan", "News & Activities")}</div>
+            <div class="section-title">{tr("Publikasi Program Kemasyarakatan", "Community Program Publications")}</div>
+            <p class="section-body">
+                {tr(
+                    "Rekam jejak, dokumentasi, dan artikel publikasi kegiatan sosial kemasyarakatan Tim II KKN Undip bersama warga Desa Silurah.",
+                    "Track record, documentation, and publication articles of social community activities by KKN Undip Team II with Silurah Village citizens."
+                )}
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        st.markdown('<div class="section" style="margin-top:1.5rem;">', unsafe_allow_html=True)
-        
-        # Bikin Layout 2 Kolom untuk Kartu Artikel
-        cols = st.columns(2, gap="large")
-        
-        for index, artikel in enumerate(ARTIKEL_DATA):
-            with cols[index % 2]:
-                with st.container(border=True):
-                    # Cek File Gambar
-                    img_path = ASSETS_DIR / artikel["gambar"]
-                    if img_path.exists():
-                        st.image(str(img_path), use_container_width=True)
-                    else:
-                        st.info(tr("🖼️ Menunggu unggahan foto...", "🖼️ Waiting for photo upload..."))
+    st.markdown('<div class="section" style="margin-top:1.5rem;">', unsafe_allow_html=True)
+    
+    # Layout 2 Kolom untuk Kartu Artikel
+    cols = st.columns(2, gap="large")
+    
+    for index, artikel in enumerate(ARTIKEL_DATA):
+        with cols[index % 2]:
+            with st.container(border=True):
+                # Cek File Gambar
+                img_path = ASSETS_DIR / artikel["gambar"]
+                if img_path.exists():
+                    st.image(str(img_path), use_container_width=True)
+                else:
+                    st.info(tr("🖼️ Menunggu unggahan foto...", "🖼️ Waiting for photo upload..."))
+                
+                st.markdown(f"#### {artikel['judul']}")
+                st.caption(f"📅 **{artikel['tanggal']}** &nbsp;|&nbsp; ✍️ **{artikel['penulis']}**")
+                st.markdown(f"<p style='color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;'>{artikel['ringkasan']}</p>", unsafe_allow_html=True)
+                
+                # Tombol Aksi Buka Artikel yang Otomatis Membuat URL Link
+                if st.button(tr("Baca Selengkapnya ➔", "Read More ➔"), key=f"btn_{artikel['id']}", use_container_width=True):
+                    st.session_state.artikel_aktif = artikel['id']
+                    st.query_params["artikel"] = artikel['id'] # <-- KUNCI UTAMA UPDATE URL
+                    st.rerun()
                     
-                    st.markdown(f"#### {artikel['judul']}")
-                    st.caption(f"📅 **{artikel['tanggal']}** &nbsp;|&nbsp; ✍️ **{artikel['penulis']}**")
-                    st.markdown(f"<p style='color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;'>{artikel['ringkasan']}</p>", unsafe_allow_html=True)
-                    
-                    # Tombol Aksi Buka Artikel
-                    if st.button(tr("Baca Selengkapnya ➔", "Read More ➔"), key=f"btn_{artikel['id']}", use_container_width=True):
-                        st.session_state.artikel_aktif = artikel['id']
-                        st.rerun()
-                        
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    # 2. JIKA ADA ARTIKEL YANG DIKLIK -> TAMPILKAN HALAMAN FULL ARTIKEL
-    else:
-        # Cari data artikel yang sesuai dengan ID yang diklik
-        artikel_terpilih = next((a for a in ARTIKEL_DATA if a["id"] == st.session_state.artikel_aktif), None)
-        
-        if artikel_terpilih:
-            # Tombol Kembali ke Grid
-            if st.button(tr("⬅ Kembali ke Daftar Artikel", "⬅ Back to Article List")):
-                st.session_state.artikel_aktif = None
-                st.rerun()
-            
-            st.markdown("<br>", unsafe_allow_html=True)
-            
-            # Header Artikel
-            st.markdown(f"<h1 style='font-size: 2.2rem; color: #2C4C3B; margin-bottom: 5px;'>{artikel_terpilih['judul']}</h1>", unsafe_allow_html=True)
-            st.caption(f"📅 **{artikel_terpilih['tanggal']}** &nbsp;|&nbsp; ✍️ Oleh **{artikel_terpilih['penulis']}**")
-            st.markdown("<hr style='margin: 15px 0 25px 0;'>", unsafe_allow_html=True)
-            
-            # Gambar Banner Artikel
-            img_path = ASSETS_DIR / artikel_terpilih["gambar"]
-            if img_path.exists():
-                st.image(str(img_path), use_container_width=True)
-            else:
-                st.info(tr("🖼️ Tempat foto dokumentasi utama kegiatan.", "🖼️ Placeholder for main documentation photo."))
-            
-            # Looping untuk mencetak isi paragraf artikel
-            st.markdown('<div style="margin-top: 25px;">', unsafe_allow_html=True)
-            for paragraf in artikel_terpilih["isi"]:
-                st.markdown(
-                    f"<p style='font-size: 1.05rem; line-height: 1.8; color: #4A3525; text-align: justify;'>{paragraf}</p>",
-                    unsafe_allow_html=True
-                )
-            st.markdown('</div>', unsafe_allow_html=True)
-            
-            st.markdown("<hr style='margin: 40px 0 20px 0;'>", unsafe_allow_html=True)
-            
-            # Tombol Kembali Ekstra di Bawah
-            if st.button(tr("Selesai Membaca", "Finish Reading"), type="primary"):
-                st.session_state.artikel_aktif = None
-                st.rerun()
+    st.markdown("</div>", unsafe_allow_html=True)
